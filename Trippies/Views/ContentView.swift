@@ -13,8 +13,8 @@ struct ContentView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Trippies")
-            ForEach(viewModel.trippies) { trippie in
-                TrippieCategoryView(type: trippie.type)
+            ForEach(Array(viewModel.trippies.values)) { trippieCategory in
+                TrippieCategoryView(trippieCategory: trippieCategory)
             }
         }
         .padding()

@@ -34,6 +34,11 @@ struct AddTrippieView: View {
                         print("Tapped")
                     }
                 }
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                }
             }
         }
     }

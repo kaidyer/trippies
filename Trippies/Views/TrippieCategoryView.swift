@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct TrippieCategoryView: View {
-    let type: String
-    var avgDuration: Int = 0
+    let trippieCategory: TrippieCategory
     
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -19,13 +18,13 @@ struct TrippieCategoryView: View {
                 .frame(width: 360, height: 150)
                 .shadow(color: .black, radius: 10, x: 10, y: 10)
             VStack(alignment: .leading) {
-                Text(type)
+                Text(trippieCategory.type)
                     .font(.title)
                     .bold()
                     .padding(20)
                 VStack(alignment: .leading){
                     Text("Average Duration:")
-                    Text("\(avgDuration) seconds")
+                    Text("\(trippieCategory.avgDuration) seconds")
                 }
                 .background(RoundedRectangle(cornerRadius: 5).fill(Color("SecondaryColor")))
                 .padding(.leading)
@@ -35,5 +34,6 @@ struct TrippieCategoryView: View {
 }
 
 #Preview {
-    TrippieCategoryView(type: "Trippies", avgDuration: 5)
+    let trippieCategory = TrippieCategory(type: "Travel", avgDuration: 35, trippies: [])
+    TrippieCategoryView(trippieCategory: trippieCategory)
 }
