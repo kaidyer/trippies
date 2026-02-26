@@ -11,13 +11,20 @@ struct ContentView: View {
     @StateObject private var viewModel = TrippiesViewModel()
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Trippies")
-            ForEach(Array(viewModel.trippies.values)) { trippieCategory in
-                TrippieCategoryView(trippieCategory: trippieCategory)
+        NavigationStack {
+            VStack(alignment: .leading) {
+                Text("Trippies")
+                
+                ForEach(Array(viewModel.trippies.values)) { trippieCategory in
+                    TrippieCategoryView(trippieCategory: trippieCategory)
+                }
+                
+                NavigationLink("Add Trippie") {
+                    AddTrippieView(viewModel: viewModel)
+                }
             }
+            .padding()
         }
-        .padding()
     }
 }
 
