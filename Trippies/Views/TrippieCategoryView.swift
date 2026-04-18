@@ -13,13 +13,13 @@ struct TrippieCategoryView: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             RoundedRectangle(cornerRadius: 25)
-                .fill(Color("PrimaryColor"))
-                .stroke(Color("SecondaryColor"), lineWidth: 5)
+                .fill(Color("FourthColor"))
                 .frame(width: 360, height: 150)
                 .shadow(color: .black, radius: 10, x: 10, y: 10)
             VStack(alignment: .leading) {
                 Text(trippieCategory.type)
                     .font(.title)
+                    .foregroundStyle(Color("TertiaryColor"))
                     .bold()
                     .padding(20)
                 VStack(alignment: .leading){

@@ -11,19 +11,23 @@ struct ContentView: View {
     @StateObject private var viewModel = TrippiesViewModel()
     
     var body: some View {
-        NavigationStack {
-            VStack(alignment: .leading) {
-                Text("Trippies")
-                
-                ForEach(Array(viewModel.trippies.values)) { trippieCategory in
-                    TrippieCategoryView(trippieCategory: trippieCategory)
+        VStack {
+            HeaderView()
+            NavigationStack {
+                VStack(alignment: .leading) {
+                    Text("Past Trippies")
+                        .font(.title2)
+                    
+                    ForEach(Array(viewModel.trippies.values)) { trippieCategory in
+                        TrippieCategoryView(trippieCategory: trippieCategory)
+                    }
+                    
+                    NavigationLink("Add Trippie") {
+                        AddTrippieView(viewModel: viewModel)
+                    }
                 }
-                
-                NavigationLink("Add Trippie") {
-                    AddTrippieView(viewModel: viewModel)
-                }
+                .padding()
             }
-            .padding()
         }
     }
 }
