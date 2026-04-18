@@ -19,7 +19,7 @@ struct TrippieCategoryView: View {
             VStack(alignment: .leading) {
                 Text(trippieCategory.type)
                     .font(.title)
-                    .foregroundStyle(Color("TertiaryColor"))
+                    .foregroundStyle(Color("BrownColor"))
                     .bold()
                     .padding(20)
                 VStack(alignment: .leading){
