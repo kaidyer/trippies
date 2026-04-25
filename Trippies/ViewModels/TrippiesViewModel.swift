@@ -23,18 +23,25 @@ class TrippiesViewModel: ObservableObject {
     }
     
     func addTrippie(type: String, duration: Int, date: Date) {
-        let trippie = Trippie(date: date, duration: duration, type: type)
+        let normalizedType = type.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trippie = Trippie(date: date, duration: duration, type: normalizedType)
         
-        if var category = trippies[type] {
+        if var category = trippies[normalizedType] {
             category.trippies.append(trippie)
-            trippies[type] = category
+            let totalDuration = category.trippies.reduce(0) { $0 + $1.duration }
+            let averageDuration = totalDuration / category.trippies.count
+            trippies[normalizedType] = TrippieCategory(
+                type: category.type,
+                avgDuration: averageDuration,
+                trippies: category.trippies
+            )
         } else {
             let newCategory = TrippieCategory(
-                type: type,
+                type: normalizedType,
                 avgDuration: duration,
                 trippies: [trippie]
             )
-            trippies[type] = newCategory
+            trippies[normalizedType] = newCategory
         }
     }
 }
