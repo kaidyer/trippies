@@ -10,8 +10,7 @@ import SwiftUI
 struct StartTrippieView: View {
     var body: some View {
         VStack {
-            Text("Start a Trippiee")
-                .bold()
+            
             ZStack {
                 Circle()
                     .fill(.header)
@@ -19,6 +18,9 @@ struct StartTrippieView: View {
                 Circle()
                     .fill(Color.tileColor)
                     .frame(width: 90)
+                Text("Start")
+                    .foregroundStyle(Color.textColor)
+                    .bold()
             }
         }
     }

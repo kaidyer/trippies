@@ -14,7 +14,7 @@ struct ContentView: View {
         VStack {
             HeaderView()
             NavigationStack {
-                VStack(alignment: .leading) {
+                ZStack(alignment: .bottom) {
                 
                     ScrollView {
                         VStack {
