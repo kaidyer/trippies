@@ -14,7 +14,7 @@ struct ContentView: View {
         VStack {
             HeaderView()
             NavigationStack {
-                VStack(alignment: .leading) {
+                ZStack(alignment: .bottom) {
                 
                     ScrollView {
                         VStack {
@@ -31,8 +31,10 @@ struct ContentView: View {
                         .padding()
                     }
                     
-                    NavigationLink("Add Trippie") {
+                    NavigationLink {
                         AddTrippieView(viewModel: viewModel)
+                    } label: {
+                        StartTrippieView()
                     }
                 }
                 .padding()
