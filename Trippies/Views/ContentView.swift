@@ -31,8 +31,10 @@ struct ContentView: View {
                         .padding()
                     }
                     
-                    NavigationLink("Add Trippie") {
+                    NavigationLink {
                         AddTrippieView(viewModel: viewModel)
+                    } label: {
+                        StartTrippieView()
                     }
                 }
                 .padding()
