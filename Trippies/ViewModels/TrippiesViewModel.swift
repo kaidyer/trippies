@@ -44,4 +44,16 @@ class TrippiesViewModel: ObservableObject {
             trippies[normalizedType] = newCategory
         }
     }
+    
+    func addTrippieCategory(type: String) {
+        let normalizedType = type.trimmingCharacters(in: .whitespacesAndNewlines)
+        if trippies[normalizedType] == nil {
+            let newCategory = TrippieCategory(
+                type: normalizedType,
+                avgDuration: 0,
+                trippies: []
+            )
+            trippies[normalizedType] = newCategory
+        }
+    }
 }

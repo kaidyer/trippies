@@ -34,7 +34,24 @@ struct TrippieCategoryView: View {
     }
 }
 
+struct CreateTrippieCategoryView: View {
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 25)
+                .fill(Color.tileColor)
+                .frame(width: 360, height: 75)
+                .shadow(color: .black, radius: 10, x: 10, y: 10)
+            Image(systemName: "plus.capsule.fill")
+                .font(.largeTitle)
+                .foregroundStyle(Color.textColor)
+        }
+    }
+}
+
 #Preview {
     let trippieCategory = TrippieCategory(type: "Travel", avgDuration: 35, trippies: [])
-    TrippieCategoryView(trippieCategory: trippieCategory)
+    VStack {
+        TrippieCategoryView(trippieCategory: trippieCategory)
+        CreateTrippieCategoryView()
+    }
 }

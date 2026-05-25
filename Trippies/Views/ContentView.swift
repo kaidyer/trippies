@@ -16,8 +16,19 @@ struct ContentView: View {
             NavigationStack {
                 VStack(alignment: .leading) {
                 
-                    ForEach(Array(viewModel.trippies.values).sorted { $0.type < $1.type }) { trippieCategory in
-                        TrippieCategoryView(trippieCategory: trippieCategory)
+                    ScrollView {
+                        VStack {
+                            ForEach(Array(viewModel.trippies.values).sorted { $0.type < $1.type }) { trippieCategory in
+                                TrippieCategoryView(trippieCategory: trippieCategory)
+                            }
+                            
+                            NavigationLink {
+                                AddTrippieCategoryView(viewModel: viewModel)
+                            } label: {
+                                CreateTrippieCategoryView()
+                            }
+                        }
+                        .padding()
                     }
                     
                     NavigationLink("Add Trippie") {
