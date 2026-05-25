@@ -19,14 +19,14 @@ struct TrippieCategoryView: View {
             VStack(alignment: .leading) {
                 Text(trippieCategory.type)
                     .font(.title)
-                    .foregroundStyle(Color("BrownColor"))
+                    .foregroundStyle(Color.textColor)
                     .bold()
                     .padding(20)
                 VStack(alignment: .leading){
                     Text("Average Duration:")
-                        .foregroundStyle(Color("BrownColor"))
+                        .foregroundStyle(Color.textColor)
                     Text("\(trippieCategory.avgDuration) seconds")
-                        .foregroundStyle(Color("BrownColor"))
+                        .foregroundStyle(Color.textColor)
                 }
                 .padding(.leading)
             }

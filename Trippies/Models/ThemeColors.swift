@@ -8,6 +8,11 @@
 import SwiftUI
 
 extension Color {
+    // tile colors
     static let tileColor = Color("TileColor")
     static let backgroundColor = Color("BrownColor")
+    
+    // text colors
+    static let textColor = Color("TextColor")
+    static let headerColor = Color("HeaderColor")
 }
