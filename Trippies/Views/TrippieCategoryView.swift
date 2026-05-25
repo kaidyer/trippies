@@ -13,7 +13,7 @@ struct TrippieCategoryView: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             RoundedRectangle(cornerRadius: 25)
-                .fill(Color("FourthColor"))
+                .fill(Color.tileColor)
                 .frame(width: 360, height: 150)
                 .shadow(color: .black, radius: 10, x: 10, y: 10)
             VStack(alignment: .leading) {
@@ -24,9 +24,10 @@ struct TrippieCategoryView: View {
                     .padding(20)
                 VStack(alignment: .leading){
                     Text("Average Duration:")
+                        .foregroundStyle(Color("BrownColor"))
                     Text("\(trippieCategory.avgDuration) seconds")
+                        .foregroundStyle(Color("BrownColor"))
                 }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color("SecondaryColor")))
                 .padding(.leading)
             }
         }

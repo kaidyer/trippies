@@ -1,3 +1,4 @@
 build
 Trippies.xcodeproj
 Trippies/scripts/run_on_device.sh
+.DS_Store

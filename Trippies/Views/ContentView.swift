@@ -15,10 +15,8 @@ struct ContentView: View {
             HeaderView()
             NavigationStack {
                 VStack(alignment: .leading) {
-                    Text("Past Trippies")
-                        .font(.title2)
-                    
-                    ForEach(Array(viewModel.trippies.values)) { trippieCategory in
+                
+                    ForEach(Array(viewModel.trippies.values).sorted { $0.type < $1.type }) { trippieCategory in
                         TrippieCategoryView(trippieCategory: trippieCategory)
                     }
                     

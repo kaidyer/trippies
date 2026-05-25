@@ -16,7 +16,7 @@ struct HeaderView: View {
                 .foregroundStyle(Color("BrownColor"))
         }
         .padding()
-        .background(Color("FourthColor"))
+        .background(Color.tileColor)
     }
 }
 
