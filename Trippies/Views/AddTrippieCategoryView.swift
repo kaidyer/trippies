@@ -25,6 +25,9 @@ struct AddTrippieCategoryView: View {
                 }
             }
             .navigationTitle("New Trippie Category")
+            .navigationBarTitleDisplayMode(.inline)
+            .scrollContentBackground(.hidden)
+            .background(Color.tileColor.opacity(0.24))
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") {
@@ -33,13 +36,9 @@ struct AddTrippieCategoryView: View {
                     }
                     .disabled(!isFormValid)
                 }
-//                ToolbarItem(placement: .topBarLeading) {
-//                    Button("Cancel") {
-//                        dismiss()
-//                    }
-//                }
             }
         }
+        .tint(Color.headerColor)
     }
 }
 

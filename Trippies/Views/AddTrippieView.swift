@@ -36,6 +36,9 @@ struct AddTrippieView: View {
                     }
                 }
                 .navigationTitle("New Trippie")
+                .navigationBarTitleDisplayMode(.inline)
+                .scrollContentBackground(.hidden)
+                .background(Color.tileColor.opacity(0.24))
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button("Done") {
@@ -48,9 +51,7 @@ struct AddTrippieView: View {
                     }
                 }
             }
-//            Button("Print") {
-//                print(viewModel.trippies)
-//            }
+            .tint(Color.headerColor)
         }
     }
 }
