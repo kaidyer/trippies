@@ -22,6 +22,8 @@ class TrippiesViewModel: ObservableObject {
         })
     }
     
+    // Section: Adding methods
+    
     func addTrippie(type: String, duration: Int, date: Date) {
         let normalizedType = type.trimmingCharacters(in: .whitespacesAndNewlines)
         let trippie = Trippie(date: date, duration: duration, type: normalizedType)
@@ -55,5 +57,11 @@ class TrippiesViewModel: ObservableObject {
             )
             trippies[normalizedType] = newCategory
         }
+    }
+    
+    // Section: Getters
+    
+    func getTrippieCategories() -> [String] {
+        return trippies.values.map { $0.type }
     }
 }

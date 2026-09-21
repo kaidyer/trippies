@@ -25,15 +25,20 @@ struct AddTrippieView: View {
             NavigationStack {
                 Form {
                     Section("Details") {
-                        DatePicker("Date", selection: $date, displayedComponents: .date)
-                        
+                        Picker("Type of Trippie", selection: $type) {
+                            ForEach(viewModel.getTrippieCategories().sorted(), id: \.self) { category in
+                                Text(category).tag(category)
+                            }
+                        }
                         TextField("Duration (minutes)", text: $duration)
                             .keyboardType(.numberPad)
-                        
-                        TextField("Type", text: $type)
+                        DatePicker("Date", selection: $date, displayedComponents: .date)
                     }
                 }
                 .navigationTitle("New Trippie")
+                .navigationBarTitleDisplayMode(.inline)
+                .scrollContentBackground(.hidden)
+                .background(Color.tileColor.opacity(0.24))
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button("Done") {
@@ -44,16 +49,9 @@ struct AddTrippieView: View {
                         }
                         .disabled(!isFormValid)
                     }
-                    ToolbarItem(placement: .topBarLeading) {
-                        Button("Cancel") {
-                            dismiss()
-                        }
-                    }
                 }
             }
-//            Button("Print") {
-//                print(viewModel.trippies)
-//            }
+            .tint(Color.headerColor)
         }
     }
 }
