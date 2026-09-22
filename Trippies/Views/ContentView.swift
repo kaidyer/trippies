@@ -38,7 +38,12 @@ struct ContentView: View {
                                     .padding(.horizontal, 4)
 
                                 ForEach(Array(viewModel.trippies.values).sorted { $0.type < $1.type }) { trippieCategory in
-                                    TrippieCategoryView(trippieCategory: trippieCategory)
+                                    NavigationLink {
+                                        MyTrippiesView(trippieCategory: trippieCategory)
+                                    } label: {
+                                        TrippieCategoryView(trippieCategory: trippieCategory)
+                                    }
+                                    
                                 }
 
                                 NavigationLink {

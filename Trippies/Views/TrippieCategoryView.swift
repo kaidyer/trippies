@@ -16,7 +16,7 @@ struct TrippieCategoryView: View {
                     .font(.title3.weight(.bold))
                     .foregroundStyle(Color.textColor)
 
-                Text("Average duration  •  \(trippieCategory.avgDuration) seconds")
+                Text("Average duration  •  \(trippieCategory.avgDuration) minutes")
                     .font(.subheadline)
                     .foregroundStyle(Color.textColor.opacity(0.72))
             }
