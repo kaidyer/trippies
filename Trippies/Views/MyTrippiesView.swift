@@ -12,13 +12,14 @@ struct MyTrippiesView: View {
     
     var body: some View {
         HStack {
-            Text("Category: \(trippieCategory.type)")
-                .font(.title)
-                .bold()
-                .padding()
+            Text(trippieCategory.type)
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(Color.textColor.opacity(0.72))
+                .textCase(.uppercase)
+                .tracking(1.2)
+                .padding(.horizontal, 4)
             Spacer()
         }
-        Spacer()
         ForEach(trippieCategory.trippies) {
             trippie in aTrippie(trippie: trippie).padding()
         }
@@ -32,17 +33,25 @@ struct aTrippie: View {
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 12)
-                .fill(.tile)
-            HStack {
-                Text("Date:")
+            VStack {
                 Text(trippie.date, format: .dateTime
                     .month(.abbreviated)
                     .day()
                     .year())
+                .font(.title3.weight(.bold))
+                .foregroundStyle(Color.textColor)
                 Text("Duration: \(trippie.duration) minutes")
+                    .font(.subheadline)
+                    .foregroundStyle(Color.textColor.opacity(0.72))
             }
-            .foregroundStyle(.text)
+            .padding(18)
+            .frame(maxWidth: .infinity, minHeight: 94)
+            .background(Color.surfaceColor, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
+            .overlay {
+                RoundedRectangle(cornerRadius: 24, style: .continuous)
+                    .stroke(Color.white.opacity(0.7), lineWidth: 1)
+            }
+            .shadow(color: Color.softShadow, radius: 16, x: 0, y: 9)
             
         }
     }
