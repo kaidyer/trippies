@@ -43,7 +43,7 @@ struct AddTrippieView: View {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button("Done") {
                             if let durationInt = Int(duration) {
-                                viewModel.addTrippie(type: type, duration: durationInt, date: date)
+                                viewModel.addTrippie(icon: "car.fill", type: type, duration: durationInt, date: date)
                                 dismiss()
                             }
                         }

@@ -5,7 +5,7 @@ struct TrippieCategoryView: View {
 
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
-            Image(systemName: "map.fill")
+            Image(systemName: trippieCategory.icon)
                 .font(.title3.weight(.semibold))
                 .foregroundStyle(Color.headerColor)
                 .frame(width: 50, height: 50)
@@ -63,7 +63,7 @@ struct CreateTrippieCategoryView: View {
 }
 
 #Preview {
-    let trippieCategory = TrippieCategory(type: "Travel", avgDuration: 35, trippies: [])
+    let trippieCategory = TrippieCategory(icon: "airplane.departure", type: "Travel", avgDuration: 35, trippies: [])
     VStack {
         TrippieCategoryView(trippieCategory: trippieCategory)
         CreateTrippieCategoryView()

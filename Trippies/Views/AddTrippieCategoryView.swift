@@ -11,6 +11,8 @@ struct AddTrippieCategoryView: View {
     @Environment(\.dismiss) var dismiss // variable to dismiss page
     @ObservedObject var viewModel: TrippiesViewModel
     @State private var categoryName = ""
+    @State private var icon = ""
+    private let iconsList = ["bolt.car", "bus", "bicycle"]
     
     var isFormValid: Bool {
         // All fields must be non-empty
@@ -22,6 +24,12 @@ struct AddTrippieCategoryView: View {
             Form {
                 Section("Details") {
                     TextField("Name", text: $categoryName)
+                    Picker("Select an icon", selection: $icon) {
+                        ForEach(iconsList, id: \.self) { iconName in
+                            Image(systemName: iconName)
+                            
+                        }
+                    }
                 }
             }
             .navigationTitle("New Trippie Category")
@@ -31,7 +39,7 @@ struct AddTrippieCategoryView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") {
-                        viewModel.addTrippieCategory(type: categoryName)
+                        viewModel.addTrippieCategory(icon: icon, type: categoryName)
                         dismiss()
                     }
                     .disabled(!isFormValid)

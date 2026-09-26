@@ -61,6 +61,6 @@ struct aTrippie: View {
     let trippieA = Trippie(date: Date.now, duration: 34, type: "Travel")
     let trippieB = Trippie(date: Date.now, duration: 36, type: "Travel")
     let trippieC = Trippie(date: Date.now, duration: 36, type: "Travel")
-    let trippieCategory = TrippieCategory(type: "Travel", avgDuration: 35, trippies: [trippieA, trippieB, trippieC])
+    let trippieCategory = TrippieCategory(icon: "airplane.departure", type: "Travel", avgDuration: 35, trippies: [trippieA, trippieB, trippieC])
     MyTrippiesView(trippieCategory: trippieCategory)
 }
