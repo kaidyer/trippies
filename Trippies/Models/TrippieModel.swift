@@ -20,8 +20,9 @@ struct Trippie: Identifiable, CustomStringConvertible {
 
 struct TrippieCategory: Identifiable, CustomStringConvertible {
     let id = UUID()
+    let icon: String
     let type: String
-    let avgDuration: Int
+    var avgDuration: Int
     var trippies: [Trippie]
     
     var description: String {
