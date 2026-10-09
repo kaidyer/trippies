@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		A10000000000000000000001 /* TrippiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrippiesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10000000000000000000010 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = System/Library/Frameworks/XCTest.framework; sourceTree = SDKROOT; };
 		66CB8F422F4A855300CEA464 /* Trippies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trippies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		A10000000000000000000002 /* TrippiesTests */ = {isa = PBXFileSystemSynchronizedRootGroup; path = TrippiesTests; sourceTree = "<group>"; };
 		66CB8F442F4A855300CEA464 /* Trippies */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Trippies;
@@ -18,7 +21,12 @@
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
+/* Begin PBXBuildFile section */
+		A10000000000000000000011 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10000000000000000000010 /* XCTest.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		A10000000000000000000003 /* TrippiesTests Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (A10000000000000000000011 /* XCTest.framework in Frameworks */,); runOnlyForDeploymentPostprocessing = 0; };
 		66CB8F3F2F4A855300CEA464 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -33,6 +41,7 @@
 			isa = PBXGroup;
 			children = (
 				66CB8F442F4A855300CEA464 /* Trippies */,
+				A10000000000000000000002 /* TrippiesTests */,
 				66CB8F432F4A855300CEA464 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +50,7 @@
 			isa = PBXGroup;
 			children = (
 				66CB8F422F4A855300CEA464 /* Trippies.app */,
+				A10000000000000000000001 /* TrippiesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,6 +58,7 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A10000000000000000000005 /* TrippiesTests */ = {isa = PBXNativeTarget; buildConfigurationList = A1000000000000000000000B /* Build configuration list for PBXNativeTarget "TrippiesTests" */; buildPhases = (A10000000000000000000006 /* Sources */, A10000000000000000000003 /* TrippiesTests Frameworks */, A10000000000000000000007 /* Resources */,); buildRules = (); dependencies = (A10000000000000000000008 /* PBXTargetDependency */,); fileSystemSynchronizedGroups = (A10000000000000000000002 /* TrippiesTests */,); name = TrippiesTests; packageProductDependencies = (); productName = TrippiesTests; productReference = A10000000000000000000001 /* TrippiesTests.xctest */; productType = "com.apple.product-type.bundle.unit-test"; };
 		66CB8F412F4A855300CEA464 /* Trippies */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66CB8F4D2F4A855500CEA464 /* Build configuration list for PBXNativeTarget "Trippies" */;
@@ -72,6 +83,24 @@
 		};
 /* End PBXNativeTarget section */
 
+/* Begin PBXContainerItemProxy section */
+		A1000000000000000000000C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66CB8F3A2F4A855300CEA464 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66CB8F412F4A855300CEA464;
+			remoteInfo = Trippies;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXTargetDependency section */
+		A10000000000000000000008 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66CB8F412F4A855300CEA464 /* Trippies */;
+			targetProxy = A1000000000000000000000C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXProject section */
 		66CB8F3A2F4A855300CEA464 /* Project object */ = {
 			isa = PBXProject;
@@ -82,6 +111,10 @@
 				TargetAttributes = {
 					66CB8F412F4A855300CEA464 = {
 						CreatedOnToolsVersion = 16.3;
+					};
+					A10000000000000000000005 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = 66CB8F412F4A855300CEA464;
 					};
 				};
 			};
@@ -100,11 +133,13 @@
 			projectRoot = "";
 			targets = (
 				66CB8F412F4A855300CEA464 /* Trippies */,
+				A10000000000000000000005 /* TrippiesTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A10000000000000000000007 /* TrippiesTests Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 		66CB8F402F4A855300CEA464 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +150,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A10000000000000000000006 /* TrippiesTests Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 		66CB8F3E2F4A855300CEA464 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -125,6 +161,8 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		A1000000000000000000000D /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {BUNDLE_LOADER = "$(TEST_HOST)"; CODE_SIGN_STYLE = Automatic; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 18.4; PRODUCT_BUNDLE_IDENTIFIER = com.kaidyer.TrippiesTests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = "1,2"; TEST_TARGET_NAME = Trippies; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trippies.app/Trippies"; }; name = Debug; };
+		A1000000000000000000000E /* Release */ = {isa = XCBuildConfiguration; buildSettings = {BUNDLE_LOADER = "$(TEST_HOST)"; CODE_SIGN_STYLE = Automatic; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 18.4; PRODUCT_BUNDLE_IDENTIFIER = com.kaidyer.TrippiesTests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = "1,2"; TEST_TARGET_NAME = Trippies; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trippies.app/Trippies"; }; name = Release; };
 		66CB8F4B2F4A855500CEA464 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -303,6 +341,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A1000000000000000000000B /* Build configuration list for PBXNativeTarget "TrippiesTests" */ = {isa = XCConfigurationList; buildConfigurations = (A1000000000000000000000D /* Debug */, A1000000000000000000000E /* Release */,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
 		66CB8F3D2F4A855300CEA464 /* Build configuration list for PBXProject "Trippies" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

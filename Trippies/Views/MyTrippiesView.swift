@@ -11,20 +11,38 @@ struct MyTrippiesView: View {
     let trippieCategory: TrippieCategory
     
     var body: some View {
-        HStack {
-            Text(trippieCategory.type)
-                .font(.subheadline.weight(.semibold))
-                .foregroundStyle(Color.textColor.opacity(0.72))
-                .textCase(.uppercase)
-                .tracking(1.2)
-                .padding(.horizontal, 4)
-            Spacer()
+        ScrollView {
+            VStack(alignment: .leading, spacing: 16) {
+                HStack {
+                    Text(trippieCategory.type)
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(Color.textColor.opacity(0.72))
+                        .textCase(.uppercase)
+                        .tracking(1.2)
+                        .padding(.horizontal, 4)
+                    Spacer()
+                }
+
+                if trippieCategory.trippies.isEmpty {
+                    ContentUnavailableView {
+                        Label("No trips yet", systemImage: "airplane")
+                    } description: {
+                        Text("Your \(trippieCategory.type.lowercased()) trips will appear here after you log one.")
+                    }
+                    .frame(maxWidth: .infinity, minHeight: 240)
+                } else {
+                    ForEach(trippieCategory.trippies) { trippie in
+                        aTrippie(trippie: trippie)
+                    }
+                }
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, 24)
+            .padding(.bottom, 24)
         }
-        ForEach(trippieCategory.trippies) {
-            trippie in aTrippie(trippie: trippie).padding()
-        }
-        Spacer()
-        
+        .scrollIndicators(.hidden)
+        .navigationTitle(trippieCategory.type)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

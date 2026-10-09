@@ -14,10 +14,14 @@ struct AddTrippieView: View {
     @State private var date = Date()
     @State private var duration = ""
     @State private var type = ""
+
+    private var categories: [String] {
+        viewModel.getTrippieCategories().sorted()
+    }
     
     var isFormValid: Bool {
-        // All fields must be non-empty, and duration must convert to an Int
-        !type.isEmpty && !duration.isEmpty && Int(duration) != nil
+        guard let durationInt = Int(duration) else { return false }
+        return durationInt > 0 && categories.contains(type)
     }
 
     var body: some View {
@@ -26,9 +30,14 @@ struct AddTrippieView: View {
                 Form {
                     Section("Details") {
                         Picker("Type of Trippie", selection: $type) {
-                            ForEach(viewModel.getTrippieCategories().sorted(), id: \.self) { category in
+                            ForEach(categories, id: \.self) { category in
                                 Text(category).tag(category)
                             }
+                        }
+                        if categories.isEmpty {
+                            Text("Create a category before adding a trippie.")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
                         }
                         TextField("Duration (minutes)", text: $duration)
                             .keyboardType(.numberPad)
@@ -52,6 +61,16 @@ struct AddTrippieView: View {
                 }
             }
             .tint(Color.headerColor)
+            .onAppear {
+                if !categories.contains(type) {
+                    type = categories.first ?? ""
+                }
+            }
+            .onChange(of: categories) { _, updatedCategories in
+                if !updatedCategories.contains(type) {
+                    type = updatedCategories.first ?? ""
+                }
+            }
         }
     }
 }
